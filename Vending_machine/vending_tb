@@ -1,0 +1,30 @@
+`timescale 1ns / 1ps
+
+module veng_m_test( );
+reg clk,rst;
+reg[1:0] in;
+wire out;
+wire [1:0] change;
+
+vending_m  mach (  clk, rst, in, out,change);
+
+always #5 clk = ~clk;
+
+initial begin
+
+$dumpfile("vending_machine.vcd");
+$dumpvars(0,veng_m_test);
+rst = 1;
+clk = 0;
+
+#6 rst = 0;
+in = 1;
+#11 in =1;
+#16 in = 1;
+#25 $finish;
+end
+
+
+
+endmodule
+
