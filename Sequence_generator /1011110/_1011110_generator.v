@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module _1011110_generator( input  [3:0] in, input clk ,reset,output reg out   );
 
  reg [3:0] shift_reg;
